@@ -7,10 +7,9 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-//DB
-dbConnect();
+
 console.log(process.env);
-const port = process.env.PORT || 6000;
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -19,8 +18,23 @@ app.use(express.json());
 //blogUser 
 //5sJOqYETD2U9iHXn
 
+//DB
+dbConnect();
+
+//Register
+app.post("/api/users/register", (req, res) => {
+  //business logic
+  res.json({user:"User Registered"})
+});
+
+//Login
+app.post("/api/users/register", (req, res) => {
+  //business logic
+  res.json({user:"User Registered"})
+});
 
 
+//server
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
