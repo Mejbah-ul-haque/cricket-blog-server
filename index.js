@@ -33,6 +33,12 @@ app.post("/api/users/login", (req, res) => {
   res.json({user:"User Login"})
 });
 
+//fetch all users
+app.post("/api/users", (req, res) => {
+  //business logic
+  res.json({user:"Fetch all users"})
+});
+
 
 //server
 app.get("/", (req, res) => {
