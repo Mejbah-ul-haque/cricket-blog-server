@@ -3,6 +3,8 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 const dbConnect= require("./config/db/dbConnect");
+const {userRegisterCtrl} = require("./controllers/users/usersCtrl");
+
 const cors = require("cors");
 require("dotenv").config();
 
@@ -22,10 +24,7 @@ app.use(express.json());
 dbConnect();
 
 //Register
-app.post("/api/users/register", (req, res) => {
-  //business logic
-  res.json({user:"User Registered"})
-});
+app.post("/api/users/register", userRegisterCtrl);
 
 //Login
 app.post("/api/users/login", (req, res) => {
