@@ -28,9 +28,9 @@ app.post("/api/users/register", (req, res) => {
 });
 
 //Login
-app.post("/api/users/register", (req, res) => {
+app.post("/api/users/login", (req, res) => {
   //business logic
-  res.json({user:"User Registered"})
+  res.json({user:"User Login"})
 });
 
 
