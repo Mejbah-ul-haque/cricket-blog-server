@@ -6,6 +6,10 @@ const User = require("../../model/user/User");
 //---------------------------------------------
 
 const userRegisterCtrl = async(req, res) => { 
+  //Check if user exist
+  const userExists = await User.findOne({email: req?.body?.email});
+  
+  if (userExists) throw new Error("User already exists");
   try {
     //Register user
   const user = await User.create({
