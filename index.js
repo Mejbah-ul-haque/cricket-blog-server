@@ -1,9 +1,8 @@
 const express = require("express");
 const dotenv = require("dotenv");
-
 dotenv.config();
 const dbConnect= require("./config/db/dbConnect");
-const {userRegisterCtrl} = require("./controllers/users/usersCtrl");
+const userRoutes = require("./route/users/usersRoute");
 
 const cors = require("cors");
 require("dotenv").config();
@@ -13,31 +12,16 @@ const app = express();
 console.log(process.env);
 const port = process.env.PORT || 5000;
 
-app.use(cors());
-app.use(express.json());
-
-// commenting
-//blogUser 
-//5sJOqYETD2U9iHXn
-
 //DB
 dbConnect();
 
-//Register
-app.post("/api/users/register", userRegisterCtrl);
+app.use(cors());
 
-//Login
-app.post("/api/users/login", (req, res) => {
-  //business logic
-  res.json({user:"User Login"})
-});
+// Middleware
+app.use(express.json());
 
-//fetch all users
-app.post("/api/users", (req, res) => {
-  //business logic
-  res.json({user:"Fetch all users"})
-});
-
+// User Route
+app.use('/api/users', userRoutes);
 
 //server
 app.get("/", (req, res) => {
