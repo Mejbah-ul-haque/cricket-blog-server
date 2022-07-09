@@ -5,8 +5,7 @@ const User = require("../../model/user/User");
 //Register
 //---------------------------------------------
 
-const userRegisterCtrl = async(req, res) => {
-  console.log(req.body);  
+const userRegisterCtrl = async(req, res) => { 
   try {
     //Register user
   const user = await User.create({
