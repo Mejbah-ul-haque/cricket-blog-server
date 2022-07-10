@@ -4,7 +4,7 @@ dotenv.config();
 const dbConnect= require("./config/db/dbConnect");
 const userRoutes = require("./route/users/usersRoute");
 const cors = require("cors");
-const { errorHandler } = require("./middlewares/error/errorHandler");
+const { errorHandler, notFound } = require("./middlewares/error/errorHandler");
 require("dotenv").config();
 
 const app = express();
@@ -24,6 +24,7 @@ app.use(express.json());
 app.use('/api/users', userRoutes);
 
 //error handler
+app.use(notFound);
 app.use(errorHandler);
 //server
 app.get("/", (req, res) => {

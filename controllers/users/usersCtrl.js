@@ -7,7 +7,6 @@ const User = require("../../model/user/User");
 //---------------------------------------------
 
 const userRegisterCtrl = expressAsyncHandler(async(req, res) => { 
-  throw new Error("User registration is required");
   //Check if user exist
   const userExists = await User.findOne({email: req?.body?.email});
   
