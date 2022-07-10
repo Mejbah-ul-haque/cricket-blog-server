@@ -26,6 +26,7 @@ app.use('/api/users', userRoutes);
 //error handler
 app.use(notFound);
 app.use(errorHandler);
+
 //server
 app.get("/", (req, res) => {
   res.send("Hello World!");
