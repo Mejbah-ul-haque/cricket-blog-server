@@ -23,7 +23,6 @@ app.use(express.json());
 // User Route
 app.use('/api/users', userRoutes);
 
-
 //error handler
 app.use(errorHandler);
 //server
