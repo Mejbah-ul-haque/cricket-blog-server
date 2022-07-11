@@ -8,8 +8,6 @@ const { errorHandler, notFound } = require("./middlewares/error/errorHandler");
 require("dotenv").config();
 
 const app = express();
-
-console.log(process.env);
 const port = process.env.PORT || 5000;
 
 //DB

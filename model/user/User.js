@@ -51,12 +51,10 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  isAccountVerified: {
-    type: Boolean, 
-    default: false,
-  },
+  isAccountVerified: {type: Boolean, default: false },
   accountVerificationToken: String,
   accountVerificationTokenExpires: Date,
+  
   viewedBy: {
     type: [
       {
@@ -108,7 +106,6 @@ userSchema.pre("save", async function(next){
   // hash password
   const salt = await bcrypt.genSalt(10);
   this.password= await bcrypt.hash(this.password, salt);
-  
   next();
 })
 
